@@ -28,30 +28,6 @@ const countrySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    native: {
-        type: String,
-        required: true
-    },
-    phone: {
-        type: String,
-        required: true
-    },
-    languages: [
-        {
-            name: {
-                type: String,
-                required: true
-            }
-        }
-    ],
-    states: [
-        {
-            name: {
-                type: String,
-                required: true
-            }
-        }
-    ]
 },
 {
     versionKey: false
