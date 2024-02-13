@@ -1,7 +1,22 @@
+import { useEffect, useState } from "react"
+
 const MainHome = () => {
+  const [countries, setCountries] = useState([])
+
+  useEffect(()=>{
+    fetch("http://localhost:3001/countries")
+    .then(response => response.json())
+    .then(data => setCountries(data));
+  }, [])
+
+  console.log(countries);
+
   return (
+    
     <section className="MainHome">
-      <h1>Main Home</h1>
+      {countries.map((country)=>{
+        return <h2>{country.name}</h2>
+      })}
     </section>
   )
 }

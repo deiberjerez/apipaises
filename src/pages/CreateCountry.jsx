@@ -9,6 +9,16 @@ const CreateCountry = () => {
       setCode(inputValue.toUpperCase())
   }
 
+  const handleAddCountry = () => {
+    fetch("http://localhost:3001/countries", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(country)
+    })
+  }
+
   return (
     <section>
       <h2>Hello! this the view</h2>
@@ -19,7 +29,7 @@ const CreateCountry = () => {
       <input type="text" placeholder="capital" value={country?.capital}/>
       <input type="text" placeholder="continent" value={country?.continent?.name}/>
       <button>Clean</button>
-      <button>Create</button>
+      <button onClick={handleAddCountry}>Create</button>
     </section>
   );
 };

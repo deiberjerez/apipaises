@@ -1,4 +1,4 @@
-const Header = () => {
+const HeaderHome = () => {
   return (
     <header className="Header">
         <input type="text" placeholder="Search a country"/>
@@ -7,4 +7,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default HeaderHome

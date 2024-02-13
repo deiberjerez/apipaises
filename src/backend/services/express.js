@@ -24,6 +24,7 @@ app.post('/countries', async (req, res) => {
     })
 })
 
+
 conectarDB()
 
 app.listen(port, () => {
