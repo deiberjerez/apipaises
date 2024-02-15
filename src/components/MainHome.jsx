@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const MainHome = () => {
+const MainHome = ({inputValue}) => {
   const [countries, setCountries] = useState([])
 
   useEffect(()=>{
@@ -9,13 +9,16 @@ const MainHome = () => {
     .then(data => setCountries(data));
   }, [])
 
-  console.log(countries);
+  console.log(inputValue);
 
   return (
-    
     <section className="MainHome">
       {countries.map((country)=>{
-        return <h2>{country.name}</h2>
+        if (country.name.toLowerCase().startsWith(inputValue.toLowerCase())) {
+          return <h2 key={country.code}>{country.name}</h2>
+        }else {
+          return null
+        }
       })}
     </section>
   )

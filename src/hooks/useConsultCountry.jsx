@@ -43,6 +43,7 @@ function useConsultCountry() {
   return {
     country,
     setCode,
+    setCountry
   };
 }
 export default useConsultCountry;

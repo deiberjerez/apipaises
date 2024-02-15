@@ -13,6 +13,11 @@ app.get('/countries', async (req, res) => {
     const response = await modelCountry.find({})
     res.json(response)
 })
+app.get('/countries/:code', async (req, res) => {
+    const code = req.params.code
+    const response = await modelCountry.findOne({ code: code })
+    res.json(response)
+})
 
 //post para enviar datos
 app.post('/countries', async (req, res) => {
@@ -24,6 +29,39 @@ app.post('/countries', async (req, res) => {
     })
 })
 
+//put para actualizar
+app.put('/country', async (req, res) => {
+    const body = req.body
+    const code = req.query.code
+    const updatedCountry = await modelCountry.findOneAndUpdate({ code: code }, body, {
+        new: true
+    })
+    if (updatedCountry) {
+      res.json({
+        message: "El objeto se actualizo de manera exitosa",
+      })
+    }else {
+      res.status(404).json({
+        message: "El objeto no fue encontrado",
+      })
+    }
+})
+
+//Delete para eliminar pais
+app.delete('/country', async (req, res) => {
+    const code = req.query.code;
+    const deletedCountry = await modelCountry.findOneAndDelete({ code: code });
+    if (deletedCountry) {
+      res.json({
+        message: "El país fue eliminado",
+        deletedCountry,
+      });
+    } else {
+      res.status(404).json({
+        message: "El país no fue encontrado",
+      });
+    }
+  });
 
 conectarDB()
 

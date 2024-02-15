@@ -1,11 +1,16 @@
-import Header from "../components/HeaderHome"
+import { useState } from "react"
+import HeaderHome from "../components/HeaderHome"
 import MainHome from "../components/MainHome"
 
 const Home = () => {
+
+  const [inputValue, setInputValue] = useState("")
+
+
   return (
     <main className="Home">
-      <Header/>
-      <MainHome/>
+      <HeaderHome setInputValue={setInputValue}/>
+      <MainHome inputValue={inputValue}/>
     </main>
   )
 }
