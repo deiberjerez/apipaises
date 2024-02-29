@@ -1,0 +1,69 @@
+.createCountry {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    background-color: #E3F4FF;
+    padding: 20px;
+}
+
+.createCountry input {
+    width: 200px;
+    height: 30px;
+    background-color: #EEEEEE;
+    color: black;
+    border: 2px solid grey;
+    text-align: center;
+}
+
+.formInputs{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.inputsFile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.inputsFile .inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.buttons .btn1 {
+    background-color: red;
+}
+.buttons .btn2 {
+    background-color: green;
+}
+
+
+@media screen and (max-width: 500px) {
+    .createCountry {
+        height: auto;
+    }
+
+    .headerInput {
+        flex-direction: column;
+    }
+
+    .inputsFile .inputs {
+        flex-direction: column;
+    }
+}

@@ -1,16 +1,20 @@
-import { useState } from "react"
-import HeaderHome from "../components/HeaderHome"
-import MainHome from "../components/MainHome"
+import React, { useContext, useEffect }  from 'react'
+import '../styles/Home.css'
+import HeaderHome from '../components/HeaderHome.jsx'
+import ContainerCountries from '../containers/ContainerCountries.jsx'
+import { ContextGetCountryDB } from '../context/ContextGetCountryDB.jsx'
 
 const Home = () => {
+  const { handleResetCountryDB } = useContext(ContextGetCountryDB);
 
-  const [inputValue, setInputValue] = useState("")
-
+  useEffect(() => {
+    handleResetCountryDB();
+  }, [])
 
   return (
-    <main className="Home">
-      <HeaderHome setInputValue={setInputValue}/>
-      <MainHome inputValue={inputValue}/>
+    <main className='home'>
+      <HeaderHome />
+      <ContainerCountries />
     </main>
   )
 }
